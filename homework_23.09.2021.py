@@ -40,7 +40,7 @@ print(correctedShoppingList)
 
 print() # empty line
 a = int(input("Enter first number: "))
-b = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
 
 print("Is "+str(a)+" bigger then "+str(b)+" ?")
 
@@ -48,6 +48,18 @@ if a > b:
     print(True)
 else:
     print(False)
+
+#5.
+
+print() # empty line
+rotationNumber = input("Enter number: ")
+test_list = []
+test_list.extend(rotationNumber)
+x = len(test_list)
+while x > 0:
+    print(test_list[x-1], end="")
+    x -= 1
+
 
 
 
