@@ -13,15 +13,15 @@ while playerOption != 3:
         guessedLetterList = []
         cycleCounter = 0
 
-        while cycleCounter != 5:
+        while cycleCounter != 6:
 
             listOFPictures = ["+---+\n  |   |\n      |\n      |\n      |\n      |\n=========",
                               "+---+\n  |   |\n  o   |\n      |\n      |\n      |\n=========",
                               "+---+\n  |   |\n  o   |\n  |   |\n      |\n      |\n=========",
                               "+---+\n  |   |\n  o   |\n /|   |\n      |\n      |\n=========",
                               "+---+\n  |   |\n  o   |\n /|\  |\n      |\n      |\n=========",
-                              "+---+\n  |   |\n  o   |\n /|\  |\n      |\n /    |\n=========",
-                              "+---+\n  |   |\n  o   |\n /|\  |\n      |\n /\   |\n=========",
+                              "+---+\n  |   |\n  o   |\n /|\  |\n /    |\n      |\n=========",
+                              "+---+\n  |   |\n  o   |\n /|\  |\n /\   |\n      |\n=========",
                               ]
             print(listOFPictures[cycleCounter])
             print("Guessed letters: {}".format(guessedLetterList))
@@ -29,20 +29,30 @@ while playerOption != 3:
 
             playerLetterInput = input("Enter letter: ")
             guessedLetterList.append(playerLetterInput)
-            x = 0
+            wordSymbolCounter = 0
+            guessedSymbolCounter = 0
 
             for slaveVariable in guessingWord:
 
                 if slaveVariable == playerLetterInput:
-                    linesForPrinting[x] = slaveVariable
-                    x += 1
+                    linesForPrinting[wordSymbolCounter] = slaveVariable
+                    guessedSymbolCounter += 1
+                    wordSymbolCounter += 1
 
-                elif slaveVariable != playerLetterInput:
-                    x += 1
-
-                elif x == len(linesForPrinting) - 1:
+                elif wordSymbolCounter == len(linesForPrinting) - 1 and guessedSymbolCounter == 0:
                     cycleCounter += 1
                     break
+
+                else:
+                    wordSymbolCounter += 1
+
+            str1 = "".join(str(e) for e in linesForPrinting)
+            if str1 == guessingWord:
+                print(guessingWord)
+                print("You won!")
+                break
+        else:
+            print("You lost!")
 
     elif int(playerOption) == 2:
         playerAddWord = input("Enter new word: ")
