@@ -22,8 +22,13 @@ class Account:
 
         self.number = random_number_for_account()
 
-    def add_money (amount):
-        if amount >= 0:
+        def add_money(amount):
+            if amount >= 0:
+                return amount + self.balance
+
+        def withdraw(amount):
+            if amount >= 0 and amount >= self.balance:
+                return self.balance - amount
 
 
 
