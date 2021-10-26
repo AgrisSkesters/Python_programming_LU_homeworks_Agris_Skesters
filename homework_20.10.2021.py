@@ -31,4 +31,22 @@ class Account:
                 return self.balance - amount
 
 
+class Bank:
+
+    def __int__(self, name, clients):
+
+        self.name = name
+        self.clients = []
+
+        def add_clients(clientName):
+            self.clients.append(clientName)
+
+        def get_total_deposits():
+            print()
+
+
+class Client:
+
+
+
 
